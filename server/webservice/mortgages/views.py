@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets, views
 from rest_framework.response import Response
+from django.http.response import JsonResponse
 from mortgages.serializers import PredictionSerializer
-from rest_framework.response import Response
 from mortgages.prediction import Predictor
 
 def index(request):
@@ -19,19 +19,26 @@ class PredictionViewSet(viewsets.ViewSet):
             print(words)
             print(words.split(' '))
             predictor = Predictor()
-            result = predictor.predict(words)
+            result, conf = predictor.predict(words)
             label = "...Could not solve... :("
-            print('reust')
-            print(result)
-            print(type(result))
+            probability = 0.0
             if type(result) == list and len(result):
                 label = result[0]
-            print(label)
-            print('!!!!!!')
+            if type(conf) == list and len(conf):
+                probability = conf[0]
+            print(label, probability)
             serializer = PredictionSerializer({
                 'prediction': label,
-                'confidence': .77
+                'confidence': probability
             })
             return Response(serializer.data)
         except Exception:
-            return None
+           return JsonResponse(
+               {
+                   'status':'false',
+                   'message':'Unable to process request'
+               },
+               status=500
+           )
+
+
