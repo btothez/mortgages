@@ -4,30 +4,34 @@ from rest_framework import viewsets, views
 from rest_framework.response import Response
 from mortgages.serializers import PredictionSerializer
 from rest_framework.response import Response
+from mortgages.prediction import Predictor
 
 def index(request):
     context = {}
     return render(request, 'mortgages/index.html', context)
-"""
-class PredictionView(views.APIView):
-    def __init__(self):
-        self.get_extra_actions = []
-        super().__init__() 
-
-    def get(self, request):
-        print('!!!!!!!!!!!!!!')
-        data = {'prediciton': 10}
-        results = PredictionSerializer(data).data
-        return Response(results)
-"""
 
 class PredictionViewSet(viewsets.ViewSet):
-    # Required for the Browsable API renderer to have a nice form.
     serializer_class = PredictionSerializer
 
     def list(self, request):
-        serializer = PredictionSerializer({
-            'prediction': 40,
-            'confidence': .77
-        })
-        return Response(serializer.data)
+        try:
+            words = request.GET['words']
+            print(words)
+            print(words.split(' '))
+            predictor = Predictor()
+            result = predictor.predict(words)
+            label = "...Could not solve... :("
+            print('reust')
+            print(result)
+            print(type(result))
+            if type(result) == list and len(result):
+                label = result[0]
+            print(label)
+            print('!!!!!!')
+            serializer = PredictionSerializer({
+                'prediction': label,
+                'confidence': .77
+            })
+            return Response(serializer.data)
+        except Exception:
+            return None

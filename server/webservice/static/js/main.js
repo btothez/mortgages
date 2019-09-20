@@ -5,7 +5,9 @@ App.controller('PredictionController', function PredictionController($scope, $ht
     $scope.submitText = () => {
         console.log('getting ...')
         $http.get('/predictions', {
-            words: $scope.textString
+            params: {
+                words: $scope.textString
+            }
         }).then((result) => {
             console.log('result', result);
             $scope.prediction = result.data;
