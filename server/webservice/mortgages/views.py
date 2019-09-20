@@ -27,6 +27,7 @@ class PredictionViewSet(viewsets.ViewSet):
 
     def list(self, request):
         serializer = PredictionSerializer({
-            'prediction': 40
+            'prediction': 40,
+            'confidence': .77
         })
         return Response(serializer.data)
