@@ -60,11 +60,9 @@
       <div class="mx-auto text-center">
         <!--<h2 class="mx-auto my-0 text-uppercase">Classify A Mortgage Document</h2>-->
         <h2 class="mx-auto text-white-50 mt-2 mb-5 text-uppercase">Classify A Mortgage Document</h2>
-        {% verbatim %}
         <div ng-app="App" ng-controller="PredictionController">
             <h1>{{hello}}</h1>
         </div>
-        {% endverbatim %}
       </div>
     </div>
   </header>
