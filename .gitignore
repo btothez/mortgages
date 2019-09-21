@@ -5,3 +5,4 @@ __pycache__/
 *.org
 *.pkl
 *.csv
+*notest.md
