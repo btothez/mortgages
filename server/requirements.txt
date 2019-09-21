@@ -3,7 +3,8 @@ psycopg2>=2.7,<3.0
 boto3==1.9.71
 
 # Rest framework
-djangorestframework==3.9.0
+djangorestframework>=3.9.1
+#djangorestframework==3.9.0
 djangorestframework-jsonapi==2.6.0
 djangorestframework-bulk==0.2.1
 
