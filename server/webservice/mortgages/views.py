@@ -16,8 +16,6 @@ class PredictionViewSet(viewsets.ViewSet):
     def list(self, request):
         try:
             words = request.GET['words']
-            print(words)
-            print(words.split(' '))
             predictor = Predictor()
             result, conf = predictor.predict(words)
             label = "...Could not solve... :("
@@ -26,7 +24,6 @@ class PredictionViewSet(viewsets.ViewSet):
                 label = result[0]
             if type(conf) == list and len(conf):
                 probability = conf[0]
-            print(label, probability)
             serializer = PredictionSerializer({
                 'prediction': label,
                 'confidence': probability

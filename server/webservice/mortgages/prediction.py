@@ -40,9 +40,6 @@ class Predictor:
         predict_x_lsa = self.instance.lsa.transform(predict_x_tfidf)
 
         p = self.instance.knn_lsa.predict(predict_x_lsa)
-        print(p)
-        print(self.instance.encoder.inverse_transform(p))
-        print(self.instance.knn_lsa.predict_proba(predict_x_lsa)[0])
         return (
             list(self.instance.encoder.inverse_transform(p)),
             list(self.instance.knn_lsa.predict_proba(predict_x_lsa)[0][p])
