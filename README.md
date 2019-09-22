@@ -3,14 +3,14 @@
 I built a webservice for classifying mortgage documents. The system was trained on the data given for this assignment, incorporating a few approaches and machine learning techniques. When a respectable accuracy was obtained I saved the binaries of these models and incorporated the prediction process into an API running on Django. I also built a frontend in Angular.js so that this API could be accessed easily by anyone with a browser.
 
 ## But first...
-I wanted to mention that this assignment was a pleasure to work, and I would love the opportunity to explain my solution in person. 
+I wanted to mention that this assignment was a pleasure to work, and I would love the opportunity to explain my solution in person.
 
 ## Live Demo
 **The document classifying webservice lives at: http://34.220.107.85/**
 ![Actual Site](http://boazreisman.com/images/classifier_demo.png)
 
 ## Explanation of the Machine Learning
-A detailed description of my thought process in developing this service can be found in the files included at the root level in this github repository. 
+A detailed description of my thought process in developing this service can be found in the files included at the root level in this github repository.
 - classification_exercise.html
 - classifcation exercise.pdf
 
@@ -24,9 +24,9 @@ I will attempt to summarize that process and my conclusions here.
 # Webservice and API
 The webservice itself is built in Django, the root path returns an single page web app built in angular.js.
 
-The page is just a textarea and a submit button. If you paste some of the anonymized "words" into the textarea, the angular hist the api endpoint with a GET, and the words are htmlencoded into the request (per the assignments instructions). 
+The page is just a textarea and a submit button. If you paste some of the anonymized "words" into the textarea, the angular hist the api endpoint with a GET, and the words are htmlencoded into the request (per the assignments instructions).
 
-The Api has a service which uses the binaries of the trained models and. This service is a singleton pattern which only needs to load once on app startup, it then can call the predictor function quickly from the api endpoint. 
+The Api has a service which uses the binaries of the trained models and. This service is a singleton pattern which only needs to load once on app startup, it then can call the predictor function quickly from the api endpoint.
 
 The returned JSON is displayed on the page: prediction category and confidence.
 

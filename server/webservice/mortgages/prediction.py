@@ -35,7 +35,6 @@ class Predictor:
         return getattr(self.instance, name)
 
     def predict(self, words):
-        print('in this functinok:')
         predict_x = pd.Series([words])
         predict_x_tfidf = self.instance.vectorizer.transform(predict_x)
         predict_x_lsa = self.instance.lsa.transform(predict_x_tfidf)
