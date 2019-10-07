@@ -9,3 +9,4 @@ __pycache__/
 *notest.md
 logs/*
 *local
+*.zip
