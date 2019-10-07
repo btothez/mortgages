@@ -7,12 +7,17 @@ I wanted to mention that this assignment was a pleasure to work, and I would lov
 
 ## Live Demo
 **The document classifying webservice lives at: http://34.220.107.85/**
+
+**Or, if you prefer, a much more accurate version at: http://54.213.175.162/**
 ![Actual Site](http://boazreisman.com/images/classifier_demo.png)
 
 ## Explanation of the Machine Learning
 A detailed description of my thought process in developing this service can be found in the files included at the root level in this github repository.
 - classification_exercise.html
 - classifcation exercise.pdf
+
+- lstm_accuracy.html
+- lstm_accuracy.pdf
 
 I will attempt to summarize that process and my conclusions here.
 - The data contained about 62K rows with the categories not at all evenly distributed, this led me to believe that a probabilistic model might produce good results.
