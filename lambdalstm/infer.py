@@ -27,7 +27,7 @@ filelist = [
 
 for f in filelist:
     os.remove(os.path.join(FILE_DIR, f))
-"""
+
 encoder = pickle.load(open(FILE_DIR + ENCODER, 'rb'))
 smaller_vectorizer = pickle.load(open(FILE_DIR + TFIDF, 'rb'))
 new_lsa = pickle.load(open(FILE_DIR + LSA, 'rb'))
@@ -132,14 +132,13 @@ def classification_engine(words):
         "prediction": label,
         "confidence": "{:.3f}".format(confidence)
     }
-"""
 
 def inferHandler(event, context):
     body = json.loads(event.get('body', '{"words":""}'))
-    #result = classification_engine(body.get('words', ''))
+    result = classification_engine(body.get('words', ''))
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": json.dumps(result)
     }
     return response

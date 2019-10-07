@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Mortgage Document Classifier</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="{% static 'js/main.js'%}?x=lskdf"></script>
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <!-- Header -->
+  {% verbatim %}
+  <div ng-app="App" ng-controller="PredictionController">
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h2 class="mx-auto text-white-50 mt-2 mb-5 text-uppercase">
+                Classify A Mortgage Document</h2>
+            <div ng-if="prediction">
+                <h3>Prediction: {{prediction.prediction}}</h3>
+                <h3>Confidence: {{prediction.confidence}}</h3>
+            </div>
+            <textarea
+                cols=75
+                rows=15
+                style="background-color: #ebe6e6"
+                placeholder="Enter a text string..."
+                ng-model="textString"></textarea>
+            <br/>
+            <button
+                class="btn-primary"
+                style="border: none"
+                ng-click="submitText()"
+                ng-disabled="!textString">Submit</button>
+      </div>
+    </div>
+  </header>
+  </div>
+  {% endverbatim %}
+
+
+
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+</body>
+
+</html>

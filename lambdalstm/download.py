@@ -29,7 +29,6 @@ CH_INDEX = 'final_sentiment.ckpt.index'
 CH_META = 'final_sentiment.ckpt.meta'
 
 def downloadHandler(event, context):
-    """
     boto3.Session(
         ).resource('s3'
         ).Bucket(BUCKET
@@ -71,7 +70,6 @@ def downloadHandler(event, context):
         ).download_file(
             CH_META,
             CHECKPOINT_DIR+CH_META)
-    """
 
     response = {
         "statusCode": 200,
