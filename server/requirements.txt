@@ -8,7 +8,7 @@ djangorestframework>=3.9.1
 djangorestframework-jsonapi==2.6.0
 djangorestframework-bulk==0.2.1
 
-nltk==3.4.5
+nltk==3.6.6
 numpy==1.16.4
 pandas==0.24.2
 sklearn==0.0
